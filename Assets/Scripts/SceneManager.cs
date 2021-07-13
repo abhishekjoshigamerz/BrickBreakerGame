@@ -9,10 +9,11 @@ public class SceneManager : MonoBehaviour
         SceneIndex++;
         firstSceneIndex++;
         //had to do this because scenemanager and unityscene manager had same names and I did not took care of that at that time. so did this
-        
         UnityEngine.SceneManagement.SceneManager.LoadScene(firstSceneIndex);
         firstSceneIndex=0;
     }
+
+    
     
     public void QuitGame(){
         Debug.Log("Game Quit!");
