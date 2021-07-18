@@ -17,9 +17,10 @@ public class BallMovement : MonoBehaviour
     {
         if(!hasStarted){
                LockBallToPaddle();
+                Launchball();
         }
      
-        Launchball();
+       
     }
 
     void LockBallToPaddle(){
@@ -31,6 +32,12 @@ public class BallMovement : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             hasStarted = true;
             GetComponent<Rigidbody2D>().velocity = new Vector2(xPush,yPush);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other) {
+        
+        if(hasStarted){
+            GetComponent<AudioSource>().Play();
         }
     }
 }
