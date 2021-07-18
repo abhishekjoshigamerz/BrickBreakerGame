@@ -13,6 +13,10 @@ public class SceneManager : MonoBehaviour
         firstSceneIndex=0;
     }
 
+    public void PlayAgain(){
+        
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
     
     
     public void QuitGame(){

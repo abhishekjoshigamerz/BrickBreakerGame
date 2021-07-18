@@ -8,6 +8,7 @@ public class BallMovement : MonoBehaviour
     bool hasStarted = false;
     Vector2 paddleToBallVector;
     [SerializeField] float xPush,yPush;
+    [SerializeField] AudioClip[] ballClip;
     void Start()
     {
         paddleToBallVector = transform.position - paddle1.transform.position;
@@ -37,7 +38,8 @@ public class BallMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         
         if(hasStarted){
-            GetComponent<AudioSource>().Play();
+            AudioClip clip = ballClip[UnityEngine.Random.Range(0,ballClip.Length)];
+            GetComponent<AudioSource>().PlayOneShot(clip);
         }
     }
 }
